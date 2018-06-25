@@ -6,15 +6,36 @@ class Triangle
   public int SideB;
   public int SideC;
 
-  public bool IsTriangle()
+  private bool isEquilateral()
   {
-    if (SideA == SideB && SideB == SideC)
+    return (SideA == SideB && SideB == SideC);
+  }
+  private bool isScalene()
+  {
+    return (SideA != SideB  && SideA != SideC && SideB != SideC);
+  }
+  private bool isIsoceles()
+  {
+    return ((SideA == SideB && SideA != SideC) || (SideA == SideC && SideA != SideB) || (SideB == SideC && SideB != SideA));
+  }
+
+  public void WhatImI()
+  {
+    if (isEquilateral())
     {
-      return true;
+      Console.WriteLine("congrats this is an equilateral.");
+    }
+    else if (isScalene())
+    {
+      Console.WriteLine("this is a Scalene triangle");
+    }
+    else if (isIsoceles())
+    {
+      Console.WriteLine("this is an isosceles triangle");
     }
     else
     {
-      return false;
+      Console.WriteLine("this isnt a triangle");
     }
   }
 }
@@ -39,16 +60,6 @@ public class Program
     string stringSideC = Console.ReadLine();
     int mySideC = int.Parse(stringSideC);
     myTriangle.SideC = mySideC;
-
-    if (myTriangle.IsTriangle())
-    {
-      Console.WriteLine("congrats this is an isocselseseseess.");
-    }
-    else
-    {
-      Console.WriteLine("sorry dude");
-    }
-
-
+    myTriangle.WhatImI();
   }
 }
