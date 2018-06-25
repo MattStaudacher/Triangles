@@ -19,7 +19,7 @@ class Triangle
     return ((SideA == SideB && SideA != SideC) || (SideA == SideC && SideA != SideB) || (SideB == SideC && SideB != SideA));
   }
 
-  public void WhatImI()
+  public void WhatAmI()
   {
     if (isEquilateral())
     {
@@ -60,6 +60,6 @@ public class Program
     string stringSideC = Console.ReadLine();
     int mySideC = int.Parse(stringSideC);
     myTriangle.SideC = mySideC;
-    myTriangle.WhatImI();
+    myTriangle.WhatAmI();
   }
 }
